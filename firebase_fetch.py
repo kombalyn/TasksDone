@@ -11,9 +11,9 @@ max_backups = 3  # Maximum number of backups to keep
 
 # Initialize Firebase Admin SDK
 def initialize_firebase():
-    cred = credentials.Certificate(r"C:\Users\Akos\Desktop\projectztt-firebase-adminsdk-fbsvc-16d783e108.json")  # Firebase Admin SDK JSON location
+    cred = credentials.Certificate(r"C:\Users\Akos\Desktop\Tasks\lumeei-test-firebase-adminsdk-7xpzv-02217082f9.json")  # Firebase Admin SDK JSON location
     firebase_admin.initialize_app(cred, {
-        'databaseURL': 'https://projectztt-default-rtdb.firebaseio.com/'  # Your database URL
+        'databaseURL': 'https://lumeei-test-default-rtdb.europe-west1.firebasedatabase.app/'  # Your database URL
     })
 
 
