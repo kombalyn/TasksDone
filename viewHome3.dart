@@ -193,7 +193,7 @@ Future lastChHome() async {
           // Use 'hang' section instead of 'long' for different content
           final hangMap = Map<String, dynamic>.from(temakorMap['hang']);
           final elemekLista = List<Map<String, dynamic>>.from(
-            (hangMap['Történelem'] as Map)['5'] // Changed to Történelem grade 5
+            (hangMap['Irodalom'] as Map)['5'] // Changed to Történelem grade 5
                 .map((e) => Map<String, dynamic>.from(e)),
           );
           final modulId = elemekLista[0]['id'];
