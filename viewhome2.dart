@@ -162,7 +162,7 @@ class ViewHome2 extends GetxController {
           final hangMap = Map<String, dynamic>.from(temakorMap['hang']);
 
           final elemekLista = List<Map<String, dynamic>>.from(
-            (hangMap['Irodalom'] as Map)['6'] // Different grade level
+            (hangMap['Történelem'] as Map)['5'] // Different grade level
                 .map((e) => Map<String, dynamic>.from(e)),
           );
 
@@ -324,3 +324,4 @@ class ViewHome2 extends GetxController {
     update();
   }
 }
+
