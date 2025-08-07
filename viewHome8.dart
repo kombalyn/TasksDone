@@ -183,6 +183,7 @@ class ViewHome2 extends GetxController {
      */
   }
 
+  /////
 Future lastChHome() async {
     final temakorService = TemakorService();
     temakorService
@@ -192,7 +193,7 @@ Future lastChHome() async {
           // Use 'hang' section instead of 'long' for different content
           final hangMap = Map<String, dynamic>.from(temakorMap['hang']);
           final elemekLista = List<Map<String, dynamic>>.from(
-            (hangMap['Matematika'] as Map)['6'] // Changed to matematika grade 6
+            (hangMap['Nyelvtan'] as Map)['6'] // Changed to Történelem grade 5
                 .map((e) => Map<String, dynamic>.from(e)),
           );
           final modulId = elemekLista[0]['id'];
@@ -200,12 +201,15 @@ Future lastChHome() async {
           for (int i = 0; i < elemekLista.length; i++) {
             _lastch.add(
               Channel(
+                categoryId: 2,
                 categoryName: elemekLista[i]['chapter'],
                 channelDescription: elemekLista[i]['description'],
                 channelId: i,
                 channelName: elemekLista[i]['title'],
                 channelImage: elemekLista[i]['picture_URL'],
                 channelType: modulId,
+                channelUrl: elemekLista[i]['picture_URL'],
+                userAgent: "ali",
                 videoId: elemekLista[i]['video_URL'],
               ),
             );
@@ -216,6 +220,46 @@ Future lastChHome() async {
         .catchError((error) {
           print('Hiba a lastChHome beolvasásakor: $error');
         });
+  }
+
+    /*
+    var url = Uri.parse('$UrlApp$gettvshow$count3$apikey');
+
+    var response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      List ch = [];
+      ch.addAll(data["posts"]);
+      // movis.shuffle();
+
+      for (int i = 0; i < ch.length; i++) {
+        _lastch.add(
+          Channel(
+              categoryId: ch[i]["category_id"],
+              categoryName: ch[i]["category_name"],
+              channelDescription: ch[i]["channel_description"],
+              channelId: ch[i]["channel_id"],
+              channelName: ch[i]["channel_name"],
+              channelImage: "https://storage.googleapis.com/lomeeibucket/krumplielem.jpg",
+              channelType: ch[i]["channel_type"],
+              channelUrl: "https://storage.googleapis.com/lomeeibucket/transzformator.jpg",//ch[i]["channel_url"],
+              userAgent: ch[i]["user_agent"],
+              videoId: ch[i]["video_id"]),
+        );
+      }
+
+      // print(lastch.length);
+
+      print("==========================");
+      // print("$UrlApp$gettvshow$count3$apikey");
+    } else {
+      // print("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+    }
+
+     */
+
+
   }
 
   Future seriesHome() async {
